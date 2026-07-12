@@ -271,23 +271,35 @@ body{
 
 .flower{
     position:absolute;
-    font-size:1.8rem;
-    animation:flowerFall 4s linear forwards;
+    font-size:2rem;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
 }
 
-@keyframes flowerFall{
+@keyframes flowerBurst{
 
     0%{
-        transform:translateY(0) scale(.5);
+        transform:
+        translate(-50%,-50%)
+        scale(.2);
         opacity:0;
     }
 
-    15%{
+    20%{
         opacity:1;
     }
 
     100%{
-        transform:translateY(180px) rotate(360deg);
+        transform:
+        translate(
+            calc(-50% + var(--x)),
+            calc(-50% + var(--y))
+        )
+        rotate(720deg)
+        scale(1.2);
+
         opacity:0;
     }
 
