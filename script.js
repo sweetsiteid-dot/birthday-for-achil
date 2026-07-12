@@ -128,51 +128,35 @@ function breakBottle(){
 
 function createFlowers(){
 
-    const flowers =
-        document.getElementById("flowers");
+    for(let i=0;i<15;i++){
 
-    const flowerList = [
-        "🌹",
-        "🌷",
-        "🌺",
-        "💐",
-        "🌸"
-    ];
+    const flower = document.createElement("div");
 
-    for(let i=0;i<25;i++){
+    flower.className = "flower";
 
-        const flower =
-            document.createElement("div");
+    flower.innerHTML =
+        emojis[Math.floor(Math.random()*emojis.length)];
 
-        flower.classList.add("flower");
+    flower.style.left = "50%";
+    flower.style.top = "50%";
 
-        flower.innerHTML =
-            flowerList[
-                Math.floor(
-                    Math.random() *
-                    flowerList.length
-                )
-            ];
+    const x =
+        (Math.random()*600 - 300) + "px";
 
-        flower.style.left =
-            Math.random()*100 + "%";
+    const y =
+        (Math.random()*-500 - 100) + "px";
 
-        flower.style.top =
-            Math.random()*50 + "%";
+    flower.style.setProperty("--x", x);
+    flower.style.setProperty("--y", y);
 
-        flower.style.animationDelay =
-            Math.random()*1 + "s";
+    flower.style.animation =
+        "flowerBurst 2s ease-out forwards";
 
-        flowers.appendChild(flower);
+    flowers.appendChild(flower);
 
-        setTimeout(()=>{
-
-            flower.remove();
-
-        },5000);
-
-    }
-
+    setTimeout(()=>{
+        flower.remove();
+    },2000);
 }
 
 // ======================
