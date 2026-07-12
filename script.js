@@ -97,101 +97,81 @@ function createHearts(){
 
 }
 
-/* =========================
-   BOTTLE BREAK
-========================= */
-
-let bottleOpened = false;
+// ======================
+// BOTTLE MESSAGE
+// ======================
 
 function breakBottle(){
 
-if(bottleOpened) return;
+    const bottle =
+        document.getElementById("bottle");
 
-bottleOpened = true;
+    bottle.classList.add("broken");
 
-const bottle =
-document.getElementById("bottle");
+    createFlowers();
 
-bottle.innerHTML = "💥";
+    setTimeout(()=>{
 
-createFlowerBurst();
+        document.getElementById(
+            "letterContainer"
+        ).style.display = "flex";
 
-setTimeout(()=>{
+        showLetter();
 
-bottle.style.display="none";
-
-document.getElementById(
-"letterContainer"
-).style.display="block";
-
-typeLetter();
-
-},1500);
+    },700);
 
 }
 
-/* =========================
-   FLOWER BURST
-========================= */
+// ======================
+// FLOWERS
+// ======================
 
-function createFlowerBurst(){
+function createFlowers(){
 
-const flowers =
-document.getElementById("flowers");
+    const flowers =
+        document.getElementById("flowers");
 
-const emojis = [
-"🌹",
-"🌹",
-"🌹",
-"🌹",
-"🌹",
-"❤️",
-"✨",
-"🌹",
-"❤️"
-];
+    const flowerList = [
+        "🌹",
+        "🌷",
+        "🌺",
+        "💐",
+        "🌸"
+    ];
 
-for(let i=0;i<40;i++){
+    for(let i=0;i<25;i++){
 
-const flower =
-document.createElement("div");
+        const flower =
+            document.createElement("div");
 
-flower.innerHTML =
-emojis[
-Math.floor(
-Math.random()*emojis.length
-)
-];
+        flower.classList.add("flower");
 
-flower.style.position =
-"absolute";
+        flower.innerHTML =
+            flowerList[
+                Math.floor(
+                    Math.random() *
+                    flowerList.length
+                )
+            ];
 
-flower.style.left = "0px";
-flower.style.top = "0px";
+        flower.style.left =
+            Math.random()*100 + "%";
 
-flower.style.fontSize =
-(Math.random()*15+25)+"px";
+        flower.style.top =
+            Math.random()*50 + "%";
 
-flower.style.setProperty(
-"--x",
-(Math.random()*700-350)+"px"
-);
+        flower.style.animationDelay =
+            Math.random()*1 + "s";
 
-flower.style.setProperty(
-"--y",
-(-Math.random()*450-50)+"px"
-);
+        flowers.appendChild(flower);
 
-flower.style.animation =
-"flowerBurst 2.5s forwards";
+        setTimeout(()=>{
 
-flowers.appendChild(flower);
+            flower.remove();
 
-setTimeout(()=>{
-flower.remove();
-},2500);
+        },5000);
 
-}
+    }
 
 }
 
