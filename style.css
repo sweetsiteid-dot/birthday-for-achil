@@ -1,0 +1,612 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(
+        180deg,
+        #2b0000,
+        #5c0000,
+        #8b0000
+    );
+    color:white;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* HIDDEN */
+
+.hidden{
+    display:none;
+}
+
+/* FLOATING HEARTS */
+
+#hearts{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.heart{
+    position:absolute;
+    color:#ff5b7f;
+    animation:floatHeart linear infinite;
+    opacity:.7;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+
+}
+
+/* PIN SCREEN */
+
+#pinScreen{
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(
+        135deg,
+        #3d0000,
+        #8b0000
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.pin-box{
+    width:90%;
+    max-width:380px;
+    text-align:center;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    padding:35px 25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.pin-box h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.pin-box h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.pin-box p{
+    opacity:.8;
+    margin-bottom:20px;
+}
+
+#pinInput{
+    width:100%;
+    height:60px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    text-align:center;
+    font-size:1.8rem;
+    letter-spacing:10px;
+    background:rgba(255,255,255,.15);
+    color:white;
+    margin-bottom:20px;
+}
+
+#pinInput::placeholder{
+    color:rgba(255,255,255,.6);
+}
+
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.keypad button{
+    height:60px;
+    border:none;
+    border-radius:15px;
+    font-size:1.2rem;
+    cursor:pointer;
+    background:rgba(255,255,255,.15);
+    color:white;
+    transition:.3s;
+}
+
+.keypad button:hover{
+    background:#ff4d6d;
+    transform:scale(1.05);
+}
+
+/* WEBSITE */
+
+#website{
+    position:relative;
+    z-index:2;
+}
+
+/* HERO SECTION */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-size:2rem;
+    margin-bottom:25px;
+    color:#ffd6d6;
+}
+
+.hero p{
+    max-width:600px;
+    line-height:2;
+    font-size:1rem;
+    margin-bottom:35px;
+    white-space:pre-line;
+}
+
+.hero button{
+    border:none;
+    padding:16px 35px;
+    border-radius:50px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(255,77,109,.4);
+}
+
+.hero button:hover{
+    transform:translateY(-4px);
+    background:#ff6b87;
+  }
+
+/* =========================
+   BOTTLE SECTION
+========================= */
+
+#bottleSection{
+    padding:100px 20px;
+    text-align:center;
+}
+
+#bottleSection h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.tap-text{
+    opacity:.8;
+    margin-bottom:30px;
+}
+
+#bottleArea{
+    position:relative;
+    min-height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#bottle{
+    font-size:6rem;
+    cursor:pointer;
+    transition:.4s;
+    user-select:none;
+}
+
+#bottle:hover{
+    transform:scale(1.1) rotate(-10deg);
+}
+
+.broken{
+    animation:breakBottle .7s forwards;
+}
+
+@keyframes breakBottle{
+
+    0%{
+        transform:scale(1) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(2) rotate(50deg);
+        opacity:0;
+    }
+
+}
+
+#flowers{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.flower{
+    position:absolute;
+    font-size:1.8rem;
+    animation:flowerFall 4s linear forwards;
+}
+
+@keyframes flowerFall{
+
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(180px) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+/* =========================
+   LETTER
+========================= */
+
+#letterContainer{
+    display:none;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.letter-paper{
+    width:90%;
+    max-width:700px;
+    background:#fff8f1;
+    color:#333;
+    border-radius:20px;
+    padding:35px;
+    text-align:left;
+    line-height:2;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3rem;
+}
+
+#letterText{
+    white-space:pre-line;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.gallery h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.gallery-subtitle{
+    opacity:.8;
+    margin-bottom:40px;
+}
+
+.gallery-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.4s;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.gallery-grid img:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+/* Optional lightbox effect */
+
+.gallery-grid img:active{
+    transform:scale(.98);
+                                }
+
+/* =========================
+   QUIZ SECTION
+========================= */
+
+.quiz-section{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.quiz-section h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.quiz-section p{
+    opacity:.85;
+    margin-bottom:40px;
+}
+
+.question{
+    display:none;
+    max-width:700px;
+    margin:auto;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.question.active{
+    display:block;
+}
+
+.question h3{
+    font-size:1.4rem;
+    margin-bottom:25px;
+}
+
+.question button{
+    display:block;
+    width:100%;
+    margin:12px 0;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.15);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-size:1rem;
+}
+
+.question button:hover{
+    background:#ff4d6d;
+    transform:translateY(-2px);
+}
+
+.correct{
+    background:#28a745 !important;
+}
+
+.wrong{
+    background:#dc3545 !important;
+}
+
+/* =========================
+   QUIZ SUCCESS
+========================= */
+
+#quizSuccess{
+    margin-top:50px;
+}
+
+#quizSuccess h2{
+    margin-bottom:20px;
+}
+
+.special-photo{
+    width:90%;
+    max-width:450px;
+    border-radius:25px;
+    margin:25px 0;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+#quizSuccess p{
+    font-size:1.1rem;
+}
+
+/* =========================
+   FINAL SECTION
+========================= */
+
+.final{
+    padding:120px 20px;
+    text-align:center;
+}
+
+.final h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3.5rem;
+    margin-bottom:10px;
+}
+
+.final h3{
+    font-size:2rem;
+    color:#ffd6d6;
+    margin-bottom:30px;
+}
+
+.final p{
+    max-width:750px;
+    margin:auto;
+    line-height:2.2;
+    font-size:1.05rem;
+    white-space:pre-line;
+}
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+.fade-in{
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .hero h2{
+        font-size:1.6rem;
+    }
+
+    .hero p{
+        font-size:.95rem;
+    }
+
+    #bottle{
+        font-size:5rem;
+    }
+
+    #bottleSection h2,
+    .gallery h2,
+    .quiz-section h2,
+    .final h2{
+        font-size:2.3rem;
+    }
+
+    .letter-paper{
+        padding:25px;
+        font-size:1.1rem;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid img{
+        height:280px;
+    }
+
+    .question{
+        padding:25px;
+    }
+
+    .question h3{
+        font-size:1.2rem;
+    }
+
+    .final h3{
+        font-size:1.5rem;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .pin-box{
+        padding:25px 18px;
+    }
+
+    .pin-box h2{
+        font-size:1.7rem;
+    }
+
+    #pinInput{
+        height:55px;
+        font-size:1.5rem;
+    }
+
+    .keypad button{
+        height:55px;
+    }
+
+    .hero{
+        padding:20px;
+    }
+
+    .hero h1{
+        font-size:2.3rem;
+    }
+
+    .hero h2{
+        font-size:1.4rem;
+    }
+
+    .hero button{
+        width:100%;
+        max-width:280px;
+    }
+
+    .final p{
+        font-size:.95rem;
+        line-height:2;
+    }
+
+}
